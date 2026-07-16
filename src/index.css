@@ -4,8 +4,8 @@
 @theme {
   --font-fraunces: 'Fraunces', serif;
   --font-inter: 'Inter', sans-serif;
-  --color-felt: #0B3D2E;
-  --color-felt-dark: #082921;
+  --color-felt: #6B0000;
+  --color-felt-dark: #2B0000;
   --color-cream: #F1E9D2;
   --color-gold: #E4C468;
   --color-gold-dark: #C9A84C;
@@ -35,7 +35,7 @@
   justify-content: center;
 }
 .card-back {
-  background: radial-gradient(circle at center, rgba(201,168,76,0.18) 0%, transparent 55%), #082921;
+  background: radial-gradient(circle at center, rgba(201,168,76,0.18) 0%, transparent 55%), #2B0000;
   border: 1.5px solid #8f7638;
   box-shadow: inset 0 0 0 4px rgba(201,168,76,0.08);
 }

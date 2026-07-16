@@ -166,7 +166,7 @@ export default function CardFlipGame() {
 
   return (
     <div
-      className="min-h-screen font-inter text-cream px-4 pt-8 pb-16 flex justify-center bg-gradient-to-tr from-[#538d22] to-[#143601]"
+      className="min-h-screen font-inter text-cream px-4 pt-8 pb-16 flex justify-center bg-gradient-to-tr from-[#6B0000] to-[#2B0000]"
     >
       <div className="w-full max-w-[900px]">
         <div className="text-center mb-7">
