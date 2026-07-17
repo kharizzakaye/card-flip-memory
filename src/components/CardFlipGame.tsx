@@ -12,10 +12,11 @@ function shuffle<T>(arr: T[]): T[] {
 }
 
 function bestGridColumns(total: number): number {
-  if (total === 16) return 4;
+  if (total === 12) return 6;
+  if (total === 16) return 8;
   const ratio = 4 / 3;
   const cols = Math.round(Math.sqrt(total * ratio));
-  return Math.max(3, Math.min(cols, 8));
+  return Math.max(3, Math.min(cols, 12));
 }
 
 export default function CardFlipGame() {
@@ -168,13 +169,13 @@ export default function CardFlipGame() {
     <div
       className="min-h-screen font-inter text-cream px-4 pt-8 pb-16 flex justify-center bg-gradient-to-tr from-[#6B0000] to-[#2B0000]"
     >
-      <div className="w-full max-w-[900px]">
+      <div className="w-full max-w-[1024px]">
         <div className="text-center mb-7">
           <p className="font-fraunces font-bold text-[44px] tracking-[0.5px] text-gold m-0">
             Card Flip - Memory Game
           </p>
-          <p className="text-[13px] tracking-[3px] uppercase text-cream-muted mt-1.5">
-            a memory card table
+          <p className="text-[13px] tracking-[3px] uppercase text-cream-muted mt-1.5 pb-6">
+            Can you remember what was flipped?
           </p>
         </div>
 
@@ -293,7 +294,7 @@ export default function CardFlipGame() {
             <div className="flex justify-between items-center text-[13px] text-cream-muted mb-[18px]">
               <span>{game.moves} {game.moves === 1 ? "move" : "moves"}</span>
               <button
-                className="appearance-none bg-transparent border border-gold-darker text-cream rounded-lg px-3.5 py-1.5 text-[13px] cursor-pointer font-inter"
+                className="appearance-none bg-transparent border border-gold-darker text-cream rounded-lg px-3.5 py-1.5 text-[13px] cursor-pointer font-inter cursor-pointer hover:bg-gold"
                 onClick={returnToSetup}
               >
                 New game
@@ -310,7 +311,8 @@ export default function CardFlipGame() {
                 <div
                   key={card.id}
                   className={
-                    "card relative aspect-[3/4] cursor-pointer rounded-lg" +
+                    "card relative aspect-[3/4] rounded-lg" +
+                    (card.matched ? " cursor-default" : " cursor-pointer") +
                     (card.flipped ? " flipped" : "") +
                     (card.matched ? " matched" : "") +
                     (game.shakeIndices.includes(idx) ? " shake" : "")
@@ -326,11 +328,11 @@ export default function CardFlipGame() {
                     }
                   }}
                 >
-                  <div className="card-inner">
-                    <div className="card-face card-back">
-                      <span className="text-gold-dark text-[22px] opacity-85">★</span>
+                  <div className="card-inner relative w-full h-full">
+                    <div className="card-face card-back absolute inset-0 rounded-lg flex items-center justify-center bg-[radial-gradient(circle_at_center,rgba(228,196,104,0.12),transparent_70%),#3D0000] border-[1.5px] border-gold-darker shadow-[inset_0_0_0_4px_rgba(201,168,76,0.08)]">
+                      <span className="text-ink text-[35px] opacity-85">★</span>
                     </div>
-                    <div className="card-face card-front">{card.symbol}</div>
+                    <div className={"card-face card-front absolute inset-0 rounded-lg flex items-center justify-center border-[1.5px] border-gold-darker text-[clamp(40px,9vw,60px)]" + (card.matched ? " bg-[#e7dfc4] opacity-65" : " bg-cream")}>{card.symbol}</div>
                   </div>
                 </div>
               ))}
