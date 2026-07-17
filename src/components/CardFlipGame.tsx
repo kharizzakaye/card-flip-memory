@@ -264,6 +264,16 @@ export default function CardFlipGame() {
                   ? "Your turn"
                   : `${game.players[game.currentPlayer].name}'s turn`}
               </div>
+
+              <button
+                className="appearance-none border-none px-[22px] py-3 rounded-[10px] bg-gradient-to-b from-gold to-gold-darker text-ink font-fraunces font-bold text-md cursor-pointer shadow-[0_6px_16px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.4)] hover:from-gold-dark hover:to-gold-dark transition-all duration-150 active:scale-[0.97]"
+                onClick={returnToSetup}
+              >
+                New game
+              </button>
+            </div>
+            
+            <div className="text-md text-cream-muted mb-6 flex justify-between items-center">
               <div className="flex gap-2.5 flex-wrap">
                 {game.players.map((p, i) => (
                   <div
@@ -286,17 +296,8 @@ export default function CardFlipGame() {
                   </div>
                 ))}
               </div>
-            </div>
-            
-            <div className="text-md text-cream-muted mb-6 flex justify-between items-center">
+              
               <span>{game.moves} {game.moves === 1 ? "move" : "moves"}</span>
-
-              <button
-                className="appearance-none border-none px-[22px] py-3 rounded-[10px] bg-gradient-to-b from-gold to-gold-darker text-ink font-fraunces font-bold text-md cursor-pointer shadow-[0_6px_16px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.4)] hover:from-gold-dark hover:to-gold-dark transition-all duration-150 active:scale-[0.97]"
-                onClick={returnToSetup}
-              >
-                New game
-              </button>
             </div>
 
             <div
@@ -327,8 +328,8 @@ export default function CardFlipGame() {
                   }}
                 >
                   <div className="card-inner relative w-full h-full">
-                    <div className="card-face card-back absolute inset-0 rounded-lg flex items-center justify-center bg-[radial-gradient(circle_at_center,rgba(228,196,104,0.12),transparent_70%),#3D0000] border-[1.5px] border-gold-darker shadow-[inset_0_0_0_4px_rgba(201,168,76,0.08)]">
-                      <span className="text-gold text-[30px] opacity-85">★</span>
+                    <div className="card-face card-back absolute inset-0 rounded-lg flex items-center justify-center border-[1.5px] border-gold-darker shadow-[inset_0_0_0_4px_rgba(201,168,76,0.08)] bg-[#ee9b00]">                      
+                      <span className="text-[#ca6702] text-[30px] opacity-85">★</span>
                     </div>
                     <div className={"card-face card-front absolute inset-0 rounded-lg flex items-center justify-center border-[1.5px] border-gold-darker text-[clamp(40px,9vw,60px)]" + (card.matched ? " bg-[#e7dfc4] opacity-65" : " bg-cream")}>{card.symbol}</div>
                   </div>
