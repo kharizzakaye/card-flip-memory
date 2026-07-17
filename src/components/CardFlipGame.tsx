@@ -155,12 +155,12 @@ export default function CardFlipGame() {
     const winners = game.players.filter((p) => p.score === maxScore);
     if (winners.length > 1) {
       return {
-        heading: "It's a tie",
+        heading: "It's a tie!",
         sub: `${winners.map((w) => w.name).join(" and ")} both found ${maxScore} pairs.`,
       };
     }
     return {
-      heading: `${winners[0].name} wins`,
+      heading: `${winners[0].name} wins!`,
       sub: `${winners[0].name} found ${maxScore} pairs in ${game.moves} moves.`,
     };
   }
@@ -328,7 +328,7 @@ export default function CardFlipGame() {
                   }}
                 >
                   <div className="card-inner relative w-full h-full">
-                    <div className="card-face card-back absolute inset-0 rounded-lg flex items-center justify-center border-[1.5px] border-gold-darker shadow-[inset_0_0_0_4px_rgba(201,168,76,0.08)] bg-[#ee9b00]">                      
+                    <div className="card-face card-back absolute inset-0 rounded-lg flex items-center justify-center border-[1.5px] border-gold-darker shadow-[inset_0_0_0_4px_rgba(201,168,76,0.08)] bg-[#f4d35e]">                      
                       <span className="text-[#ca6702] text-[30px] opacity-85">★</span>
                     </div>
                     <div className={"card-face card-front absolute inset-0 rounded-lg flex items-center justify-center border-[1.5px] border-gold-darker text-[clamp(40px,9vw,60px)]" + (card.matched ? " bg-[#e7dfc4] opacity-65" : " bg-cream")}>{card.symbol}</div>
@@ -339,18 +339,15 @@ export default function CardFlipGame() {
 
             {game.showWin && (
               <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-20 p-5">
-                <div className="bg-gradient-to-b from-felt to-felt-dark border border-gold rounded-2xl px-9 py-10 text-center max-w-[380px] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
-                  <p className="text-xs tracking-[3px] uppercase text-gold-dark mb-2.5">
-                    Table cleared
-                  </p>
-                  <h2 className="font-fraunces text-[30px] m-0 mb-2 text-gold">
+                <div className="bg-gradient-to-b from-felt to-felt-dark border border-gold rounded-xl px-9 py-10 text-center max-w-[380px] shadow-[0_30px_70px_rgba(0,0,0,0.6)]">
+                  <h2 className="font-fraunces text-[30px] m-0 mb-3 text-gold">
                     {getWinnerInfo().heading}
                   </h2>
-                  <p className="text-cream-muted text-sm m-0 mb-6">
+                  <p className="text-cream-muted text-sm m-0 mb-9">
                     {getWinnerInfo().sub}
                   </p>
                   <button
-                    className="appearance-none border-none px-7 py-3.5 rounded-[10px] bg-gradient-to-b from-gold to-gold-dark text-ink font-fraunces font-bold text-base cursor-pointer"
+                    className="appearance-none border-none px-7 py-3.5 rounded-[10px] bg-gradient-to-b from-gold to-gold-darker text-black font-fraunces font-bold text-base cursor-pointer hover:from-gold-dark hover:to-gold-dark"
                     onClick={returnToSetup}
                   >
                     Play again
