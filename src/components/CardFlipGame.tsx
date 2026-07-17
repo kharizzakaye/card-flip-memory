@@ -189,10 +189,10 @@ export default function CardFlipGame() {
                 <button
                   key={n}
                   className={
-                    "appearance-none border font-inter text-[15px] font-semibold px-5 py-3 rounded-full cursor-pointer transition-all duration-150 min-w-[74px] hover:border-gold-dark hover:bg-gold-dark/12 focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2 " +
+                    "appearance-none border font-inter text-[15px] font-semibold px-5 py-3 rounded-full cursor-pointer transition-all duration-150 min-w-[74px] focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2 " +
                     (n === numPlayers
-                      ? "bg-gold-dark border-gold text-ink font-bold shadow-[0_3px_10px_rgba(0,0,0,0.35)]"
-                      : "bg-black/25 border-gold-darker text-cream")
+                      ? "bg-gold-dark border-gold text-ink font-bold shadow-[0_3px_10px_rgba(0,0,0,0.35)] hover:bg-gold hover:border-gold"
+                      : "bg-black/25 border-gold-darker text-cream hover:border-gold-dark hover:bg-gold-dark/12")
                   }
                   aria-pressed={n === numPlayers}
                   onClick={() => setNumPlayers(n)}
@@ -234,10 +234,10 @@ export default function CardFlipGame() {
                 <button
                   key={opt.pairs}
                   className={
-                    "appearance-none border font-inter text-[15px] font-semibold w-14 h-14 p-0 rounded-full cursor-pointer transition-all duration-150 hover:border-gold-dark hover:bg-gold-dark/12 focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2 " +
+                    "appearance-none border font-inter text-[15px] font-semibold w-14 h-14 p-0 rounded-full cursor-pointer transition-all duration-150 focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2 " +
                     (opt.pairs === cardPairs
-                      ? "bg-gold-dark border-gold text-ink font-bold shadow-[0_3px_10px_rgba(0,0,0,0.35)]"
-                      : "bg-black/25 border-gold-darker text-cream")
+                      ? "bg-gold-dark border-gold text-ink font-bold shadow-[0_3px_10px_rgba(0,0,0,0.35)] hover:bg-gold hover:border-gold"
+                      : "bg-black/25 border-gold-darker text-cream hover:border-gold-dark hover:bg-gold-dark/12")
                   }
                   aria-pressed={opt.pairs === cardPairs}
                   onClick={() => setCardPairs(opt.pairs)}
@@ -248,7 +248,7 @@ export default function CardFlipGame() {
             </div>
 
             <button
-              className="appearance-none border-none w-full p-4 rounded-[10px] bg-gradient-to-b from-gold to-gold-dark text-ink font-fraunces font-bold text-lg tracking-[0.5px] cursor-pointer shadow-[0_8px_20px_rgba(0,0,0,0.35)]"
+              className="appearance-none border-none w-full p-4 rounded-[10px] bg-gradient-to-b from-gold to-gold-dark text-ink font-fraunces font-bold text-lg tracking-[0.5px] cursor-pointer shadow-[0_8px_20px_rgba(0,0,0,0.35)] hover:from-gold-dark hover:to-gold-dark hover:shadow-[0_8px_24px_rgba(0,0,0,0.5)] active:scale-[0.98] transition-all duration-150"
               onClick={startGame}
             >
               Deal the cards
@@ -268,8 +268,8 @@ export default function CardFlipGame() {
             </div> */}
           
             <div>
-              <div className="flex items-center justify-between gap-4 flex-wrap mb-6">
-                <div className="bg-gradient-to-b from-gold to-gold-darker text-ink rounded-[10px] px-[22px] py-3 font-fraunces font-bold text-lg shadow-[0_6px_16px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.4)]">
+              <div className="flex items-center justify-between gap-4 flex-wrap mb-6 pt-5">
+                <div className="bg-gradient-to-b from-gold to-gold-darker text-ink rounded-[10px] px-[22px] py-3 font-fraunces font-bold text-md shadow-[0_6px_16px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.4)]">
                   {game.players.length === 1
                     ? "Your turn"
                     : `${game.players[game.currentPlayer].name}'s turn`}
